@@ -1,6 +1,6 @@
-package edu.miu.demoinclass2.repo;
+package com.example.lab3.repo;
 
-import edu.miu.demoinclass2.model.Post;
+import com.example.lab3.model.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PostRepository extends JpaRepository<Post, Long> {

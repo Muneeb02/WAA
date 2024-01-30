@@ -1,4 +1,4 @@
-package edu.miu.demoinclass2.model.dto;
+package com.example.lab3.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

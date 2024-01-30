@@ -1,9 +1,9 @@
-package edu.miu.demoinclass2.controller;
+package com.example.lab3.controller;
 
 
-import edu.miu.demoinclass2.model.dto.PostDto;
-import edu.miu.demoinclass2.model.dto.UsersDto;
-import edu.miu.demoinclass2.service.UsersService;
+import com.example.lab3.dto.PostDto;
+import com.example.lab3.dto.UsersDto;
+import com.example.lab3.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,11 +37,21 @@ public class UsersController {
         return ResponseEntity.ok(usersDto1);
     }
 
-    @GetMapping("/{id}/posts")
+    @GetMapping("/{id}/posts/")
     public ResponseEntity<List<PostDto>> getAllPostFromUsers(@PathVariable long id){
         List<PostDto> postDto = usersService.getUserPosts(id);
         return ResponseEntity.ok(postDto);
     }
 
+    @GetMapping("/postMoreThan/{n}")
+    public ResponseEntity<List<UsersDto>> getUserMorePosts(@PathVariable int n){
+         return ResponseEntity.ok(usersService.getUserWithMorePosts(n));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUserbyId(@PathVariable long id){
+           String s = usersService.delteUserById(id);
+           return ResponseEntity.ok(s);
+    }
 
 }

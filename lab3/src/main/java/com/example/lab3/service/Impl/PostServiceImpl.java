@@ -1,9 +1,9 @@
-package edu.miu.demoinclass2.service.Impl;
+package com.example.lab3.service.Impl;
 
-import edu.miu.demoinclass2.model.Post;
-import edu.miu.demoinclass2.model.dto.PostDto;
-import edu.miu.demoinclass2.repo.PostRepository;
-import edu.miu.demoinclass2.service.PostService;
+import com.example.lab3.dto.PostDto;
+import com.example.lab3.model.Post;
+import com.example.lab3.repo.PostRepository;
+import com.example.lab3.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

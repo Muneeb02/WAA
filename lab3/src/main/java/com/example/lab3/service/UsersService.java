@@ -1,7 +1,8 @@
-package edu.miu.demoinclass2.service;
+package com.example.lab3.service;
 
-import edu.miu.demoinclass2.model.dto.PostDto;
-import edu.miu.demoinclass2.model.dto.UsersDto;
+
+import com.example.lab3.dto.PostDto;
+import com.example.lab3.dto.UsersDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,10 @@ public interface UsersService {
     UsersDto getUsersById(long id);
     UsersDto createNewUser(UsersDto usersDto);
     List<PostDto> getUserPosts(Long id);
+
+    List<UsersDto> getUserWithMorePosts(int n);
+
+    String delteUserById(long id);
 
 
 }

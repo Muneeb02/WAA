@@ -6,17 +6,21 @@ import edu.miu.demoinclass2.model.dto.PostDto;
 import edu.miu.demoinclass2.model.dto.UsersDto;
 import edu.miu.demoinclass2.repo.UsersRepository;
 import edu.miu.demoinclass2.service.UsersService;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+
 public class UsersServiceImpl implements UsersService {
-    private UsersRepository usersRepository;
-    private ModelMapper modelMapper;
+    @Autowired
+    private  UsersRepository usersRepository;
+    @Autowired
+    private  ModelMapper modelMapper;
     @Override
     public List<UsersDto> getAllUsers() {
 

@@ -1,9 +1,13 @@
-package edu.miu.demoinclass2.controller;
+package com.example.lab3.controller;
 
-import edu.miu.demoinclass2.model.dto.PostDto;
-import edu.miu.demoinclass2.service.PostService;
+
+import com.example.lab3.dto.CommentsDto;
+import com.example.lab3.dto.PostDto;
+import com.example.lab3.service.CommentsService;
+import com.example.lab3.service.PostService;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +19,9 @@ import java.util.stream.Collectors;
 public class PostController {
 
    @Autowired
-    private PostService postService;
+   private PostService postService;
+   @Autowired
+   private CommentsService commentsService;
 
 
     @GetMapping
@@ -57,5 +63,12 @@ public class PostController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping("/{id}/comment")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<?> addComment(@PathVariable("id") long id, @RequestBody CommentsDto commentsDto){
+        CommentsDto commentsDto1 = commentsService.createCommentByPostId(id,commentsDto);
+        return ResponseEntity.ok(commentsDto1);
     }
 }

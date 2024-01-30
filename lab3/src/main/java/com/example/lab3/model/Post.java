@@ -1,11 +1,12 @@
-package edu.miu.demoinclass2.model;
+package com.example.lab3.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -19,5 +20,7 @@ public class Post {
     String title;
     String content;
     String author;
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
+    List<Comments> comments;
 
 }

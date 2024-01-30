@@ -1,8 +1,9 @@
-package edu.miu.demoinclass2.config;
+package com.example.lab3.config;
 
 
-import edu.miu.demoinclass2.service.Impl.UsersServiceImpl;
-import edu.miu.demoinclass2.service.UsersService;
+
+import com.example.lab3.service.Impl.UsersServiceImpl;
+import com.example.lab3.service.UsersService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

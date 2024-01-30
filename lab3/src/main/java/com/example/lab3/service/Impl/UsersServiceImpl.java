@@ -1,13 +1,13 @@
-package edu.miu.demoinclass2.service.Impl;
+package com.example.lab3.service.Impl;
 
-import edu.miu.demoinclass2.model.Post;
-import edu.miu.demoinclass2.model.Users;
-import edu.miu.demoinclass2.model.dto.PostDto;
-import edu.miu.demoinclass2.model.dto.UsersDto;
-import edu.miu.demoinclass2.repo.UsersRepository;
-import edu.miu.demoinclass2.service.UsersService;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+
+
+import com.example.lab3.dto.PostDto;
+import com.example.lab3.dto.UsersDto;
+import com.example.lab3.model.Post;
+import com.example.lab3.model.Users;
+import com.example.lab3.repo.UsersRepository;
+import com.example.lab3.service.UsersService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 public class UsersServiceImpl implements UsersService {
     @Autowired
-    private  UsersRepository usersRepository;
+    private UsersRepository usersRepository;
     @Autowired
     private  ModelMapper modelMapper;
     @Override
@@ -60,6 +60,22 @@ public class UsersServiceImpl implements UsersService {
         throw new RuntimeException("User not exist");
     }
 
+    @Override
+    public List<UsersDto> getUserWithMorePosts(int n) {
+        List<Users> user = usersRepository.listOfUsersMoreThanOnePosts(n);
+        return user.stream().map(users -> modelMapper.map(users,UsersDto.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public String delteUserById(long id) {
+        Optional<Users> users = usersRepository.findById(id);
+        if (users.isPresent()){
+
+           usersRepository.deleteById(id);
+            return "Deleted successfully";
+        }
+        throw new RuntimeException("User not found!");
+    }
 
 
 }

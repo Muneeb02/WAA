@@ -1,7 +1,10 @@
-package edu.miu.demoinclass2.model;
+package com.example.lab3.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -12,10 +15,11 @@ import java.util.List;
 @Entity
 public class Users {
     @Id
+    @GeneratedValue
     private long id;
     private String name;
-    @OneToMany
-    @JoinColumn
+    @OneToMany(cascade = CascadeType.ALL )
+    @JoinColumn(name = "user_id")
     private List<Post> posts;
 
 }

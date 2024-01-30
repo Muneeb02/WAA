@@ -1,6 +1,8 @@
-package edu.miu.demoinclass2.service;
+package com.example.lab3.service;
 
-import edu.miu.demoinclass2.model.dto.PostDto;
+
+
+import com.example.lab3.dto.PostDto;
 
 import java.util.List;
 

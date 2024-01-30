@@ -1,6 +1,7 @@
-package edu.miu.demoinclass2.model.dto;
+package com.example.lab3.dto;
 
-import edu.miu.demoinclass2.model.Post;
+
+import com.example.lab3.model.Post;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,8 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UsersDto {
-    long id;
+
     String name;
-    List<Post> posts;
+    List<PostDto> posts;
 
 }
